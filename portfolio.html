@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Lucatorto | Mechanical Engineering</title>
+    <meta name="description" content="Miles Lucatorto - Mechanical Engineering student at UConn specializing in Formula SAE, robotics, and precision engineering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Minimalist UConn Palette */
+            --navy-primary: #00205B;
+            --navy-dark: #001233;
+            --blue-accent: #0066CC;
+            --cyan-accent: #48dbfb;
+            
+            /* Minimal Neutrals */
+            --gray-950: #0a0a0a;
+            --gray-900: #1a1a1a;
+            --gray-800: #2a2a2a;
+            --gray-700: #404040;
+            --gray-600: #666666;
+            --gray-400: #999999;
+            --gray-200: #e5e5e5;
+            --gray-100: #f5f5f5;
+            --white: #ffffff;
+            
+            /* Typography */
+            --font-main: 'Inter', -apple-system, system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Spacing */
+            --space-unit: 8px;
+            --section-gap: calc(var(--space-unit) * 15);
+            
+            /* Animation */
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #000000;
+            --bg-elevated: var(--gray-950);
+            --bg-card: var(--gray-900);
+            --text-primary: var(--white);
+            --text-secondary: var(--gray-400);
+            --text-tertiary: var(--gray-600);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.15);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+            --glow: rgba(0, 102, 204, 0.2);
+        }
+
+        [data-theme="light"] {
+            --bg: var(--white);
+            --bg-elevated: var(--gray-100);
+            --bg-card: var(--white);
+            --text-primary: var(--gray-950);
+            --text-secondary: var(--gray-600);
+            --text-tertiary: var(--gray-400);
+            --border: rgba(0, 0, 0, 0.08);
+            --border-strong: rgba(0, 0, 0, 0.15);
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --glow: rgba(0, 102, 204, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+        }
+
+        /* Minimal Grid Background */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--space-unit) * 10) calc(var(--space-unit) * 3);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+            pointer-events: none;
+            animation: glow 8s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.6; transform: translateX(-50%) scale(1.1); }
+        }
+
+        .headshot-container {
+            margin-bottom: calc(var(--space-unit) * 6);
+            opacity: 0;
+            animation: fadeIn 1s var(--ease) 0.2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .headshot {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid var(--border-strong);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            transition: all 0.4s var(--ease);
+            box-shadow: var(--shadow);
+        }
+
+        .headshot:hover {
+            transform: scale(1.05);
+            border-color: var(--blue-accent);
+            box-shadow: 0 8px 40px var(--glow);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--blue-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: calc(var(--space-unit) * 2);
+            opacity: 0;
+            animation: fadeIn 1s var(--ease) 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: calc(var(--space-unit) * 3);
+            opacity: 0;
+            animation: fadeIn 1s var(--ease) 0.4s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: calc(var(--space-unit) * 4);
+            opacity: 0;
+            animation: fadeIn 1s var(--ease) 0.5s forwards;
+        }
+
+        .hero-meta {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: calc(var(--space-unit) * 5);
+            opacity: 0;
+            animation: fadeIn 1s var(--ease) 0.6s forwards;
+        }
+
+        /* Section */
+        section {
+            padding: var(--section-gap) calc(var(--space-unit) * 3);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: calc(var(--space-unit) * 8);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s var(--ease);
+        }
+
+        .section-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--blue-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: calc(var(--space-unit) * 2);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: calc(var(--space-unit) * 2);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: calc(var(--space-unit) * 8);
+            align-items: start;
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s var(--ease);
+        }
+
+        .about-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: calc(var(--space-unit) * 3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: calc(var(--space-unit) * 3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s var(--ease) 0.2s;
+        }
+
+        .stats-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: calc(var(--space-unit) * 4);
+            border-radius: 8px;
+            transition: all 0.3s var(--ease);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue-accent);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--blue-accent);
+            line-height: 1;
+            margin-bottom: calc(var(--space-unit) * 1);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: calc(var(--space-unit) * 3);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: calc(var(--space-unit) * 4);
+            border-radius: 8px;
+            transition: all 0.3s var(--ease);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue-accent);
+            box-shadow: var(--shadow);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--blue-accent);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: calc(var(--space-unit) * 3);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: calc(var(--space-unit) * 2);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: calc(var(--space-unit) * 2);
+        }
+
+        .card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--space-unit) * 1);
+        }
+
+        .card li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            padding-left: calc(var(--space-unit) * 2);
+            position: relative;
+        }
+
+        .card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--blue-accent);
+        }
+
+        /* Project Card */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s var(--ease);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue-accent);
+            box-shadow: var(--shadow);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-tertiary);
+        }
+
+        .project-content {
+            padding: calc(var(--space-unit) * 3);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: calc(var(--space-unit) * 1);
+            margin-bottom: calc(var(--space-unit) * 2);
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: calc(var(--space-unit) * 0.5) calc(var(--space-unit) * 1.5);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--blue-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        footer {
+            padding: calc(var(--space-unit) * 8) calc(var(--space-unit) * 3);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Bottom Navigation */
+        .floating-nav {
+            position: fixed;
+            bottom: calc(var(--space-unit) * 3);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease) 1s forwards;
+        }
+
+        @keyframes slideUp {
+            to { opacity: 1; }
+        }
+
+        .nav-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-strong);
+            border-radius: 100px;
+            padding: calc(var(--space-unit) * 1.5);
+            display: flex;
+            gap: calc(var(--space-unit) * 1);
+            align-items: center;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-item {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s var(--ease);
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+
+        .nav-item.active {
+            color: var(--blue-accent);
+            background: var(--bg-elevated);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border);
+            margin: 0 calc(var(--space-unit) * 0.5);
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+        }
+
+        .nav-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-elevated);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            top: calc(var(--space-unit) * 3);
+            right: calc(var(--space-unit) * 3);
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeIn 0.6s var(--ease) 1.2s forwards;
+        }
+
+        .music-toggle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-strong);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            box-shadow: var(--shadow);
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.05);
+            border-color: var(--blue-accent);
+            color: var(--blue-accent);
+        }
+
+        .music-toggle.playing {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
+            50% { box-shadow: 0 0 0 8px transparent; }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: calc(var(--space-unit) * 5);
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-nav {
+                bottom: calc(var(--space-unit) * 2);
+            }
+
+            .nav-container {
+                padding: calc(var(--space-unit) * 1);
+            }
+
+            .nav-item {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+
+            .nav-btn {
+                width: 44px;
+                height: 44px;
+            }
+
+            .music-player {
+                top: auto;
+                bottom: calc(var(--space-unit) * 12);
+                right: calc(var(--space-unit) * 2);
+            }
+
+            .music-toggle {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: calc(var(--space-unit) * 10) calc(var(--space-unit) * 2);
+            }
+
+            .hero {
+                padding: calc(var(--space-unit) * 8) calc(var(--space-unit) * 2);
+            }
+
+            .headshot {
+                width: 140px;
+                height: 140px;
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+            🔇
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="headshot-container">
+                <div class="headshot">
+                    <span>ML</span>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-label">MECHANICAL ENGINEERING @ UCONN</div>
+                <h1>Miles Lucatorto</h1>
+                <p class="hero-subtitle">
+                    Mechanical engineering student specializing in precision design, 
+                    Formula SAE, and hands-on fabrication. Building solutions through 
+                    technical excellence and iterative engineering.
+                </p>
+                <div class="hero-meta">B.S. Mechanical Engineering · Class of 2029</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <div class="section-label">ABOUT</div>
+                <h2 class="section-title">Engineer & Builder</h2>
+                <p class="section-description">
+                    Driven by curiosity and a commitment to practical engineering excellence
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm a Mechanical Engineering student at the University of Connecticut, 
+                        graduating in 2029, with a passion for transforming abstract concepts 
+                        into tangible, high-performance systems.
+                    </p>
+                    <p>
+                        Whether designing aerodynamic components for our Formula SAE race car, 
+                        machining precision parts on CNC equipment, or optimizing robotic mechanisms, 
+                        I thrive where design meets manufacturing reality.
+                    </p>
+                    <p>
+                        My technical foundation spans CAD modeling, FEA simulation, manufacturing 
+                        processes, and collaborative engineering workflows. I believe the best 
+                        engineering happens through iteration, testing, and learning from failures.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="120">0</div>
+                        <div class="stat-label">CAD Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="250">0</div>
+                        <div class="stat-label">Volunteer Hrs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="10000">0</div>
+                        <div class="stat-label">Raised ($)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <div class="section-label">SKILLS</div>
+                <h2 class="section-title">Technical Capabilities</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">📐</div>
+                    <h3>CAD & Design</h3>
+                    <ul>
+                        <li>SolidWorks (Advanced)</li>
+                        <li>Fusion 360</li>
+                        <li>AutoCAD</li>
+                        <li>GD&T Documentation</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Manufacturing</h3>
+                    <ul>
+                        <li>CNC Machining</li>
+                        <li>3D Printing (FDM/SLA)</li>
+                        <li>Sheet Metal Fabrication</li>
+                        <li>Assembly & Testing</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Analysis</h3>
+                    <ul>
+                        <li>FEA Simulation</li>
+                        <li>Data Organization</li>
+                        <li>Performance Testing</li>
+                        <li>Excel & Documentation</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Education</h3>
+                    <ul>
+                        <li>University of Connecticut</li>
+                        <li>B.S. Mechanical Engineering</li>
+                        <li>Expected: May 2029</li>
+                        <li>Floral Park Memorial HS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Involvement Section -->
+        <section id="involvement">
+            <div class="section-header">
+                <div class="section-label">INVOLVEMENT</div>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🏎️</div>
+                    <h3>Formula SAE</h3>
+                    <p>
+                        Aerodynamics Subsystem Member for UConn's Formula SAE electric race car. 
+                        Contributing to CAD design, packaging, and subsystem collaboration.
+                    </p>
+                    <div class="tag">2025 - Present</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>FIRST Robotics</h3>
+                    <p>
+                        Field Staff Volunteer for 4017 RoboPandas, assisting with setup, teardown, 
+                        and event execution during regional competitions.
+                    </p>
+                    <div class="tag">2022 - 2025</div>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⛺</div>
+                    <h3>Boy Scouts</h3>
+                    <p>
+                        Senior Patrol Leader and Health & Safety Merit Badge Counselor. 
+                        Eagle Scout candidate with extensive leadership experience.
+                    </p>
+                    <div class="tag">2018 - Present</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <div class="section-label">PROJECTS</div>
+                <h2 class="section-title">Featured Work</h2>
+            </div>
+            <div class="grid">
+                <div class="project-card">
+                    <div class="project-image">🏗️</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">CAD</span>
+                            <span class="tag">Analysis</span>
+                            <span class="tag">FSAE</span>
+                        </div>
+                        <h3>Aerodynamics Components</h3>
+                        <p>
+                            Design and packaging work for Formula SAE aerodynamic subsystems. 
+                            Focus on integration and manufacturability.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔧</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Manufacturing</span>
+                            <span class="tag">CNC</span>
+                        </div>
+                        <h3>Precision Fabrication</h3>
+                        <p>
+                            Custom manufacturing projects utilizing CNC machining and 
+                            3D printing to create precision components.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🎯</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Community</span>
+                        </div>
+                        <h3>Eagle Scout Project</h3>
+                        <p>
+                            Leadership project demonstrating planning, organization, 
+                            and community impact through coordinated field work.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Testing</span>
+                            <span class="tag">Data</span>
+                        </div>
+                        <h3>Performance Testing</h3>
+                        <p>
+                            Component testing and data analysis focused on validating 
+                            design decisions through empirical measurement.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">💡</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Fundraising</span>
+                        </div>
+                        <h3>SkillsUSA Fundraising</h3>
+                        <p>
+                            Fundraising assistant role coordinating sales events. 
+                            Raised over $10,000 for student competitions.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏊</div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Safety</span>
+                        </div>
+                        <h3>Lifeguard & Safety</h3>
+                        <p>
+                            Nassau County Certified Lifeguard ensuring water safety 
+                            through monitoring and emergency response.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header">
+                <div class="section-label">CONTACT</div>
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-description">
+                    Available for internships, project collaboration, and engineering opportunities
+                </p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>📧 Email</h3>
+                    <p>miles.lucatorto@gmail.com</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Phone</h3>
+                    <p>(516) 757-2649</p>
+                </div>
+                <div class="card">
+                    <h3>💼 LinkedIn</h3>
+                    <p>linkedin.com/in/miles-lucatorto</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Miles Lucatorto · Floral Park, NY · Engineered with precision</p>
+    </footer>
+
+    <!-- Floating Bottom Navigation -->
+    <div class="floating-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-item" data-section="home" title="Home">🏠</a>
+            <a href="#about" class="nav-item" data-section="about" title="About">👤</a>
+            <a href="#skills" class="nav-item" data-section="skills" title="Skills">⚙️</a>
+            <a href="#involvement" class="nav-item" data-section="involvement" title="Involvement">🤝</a>
+            <a href="#projects" class="nav-item" data-section="projects" title="Projects">📁</a>
+            <a href="#contact" class="nav-item" data-section="contact" title="Contact">📧</a>
+            <div class="nav-divider"></div>
+            <button class="nav-btn" id="themeToggle" title="Toggle theme">☀</button>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Theme Management
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        
+        body.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '☀' : '🌙';
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀' : '🌙';
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Music Player
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = '🔇';
+                musicToggle.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicToggle.textContent = '🔊';
+                musicToggle.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Active Navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-item');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-section') === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-header, .about-text, .stats-grid, .card, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animated Counter
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target >= 1000 ? target.toLocaleString() : target;
+                }
+            };
+
+            updateCounter();
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('[data-target]');
+                    statNumbers.forEach(animateCounter);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const aboutSection = document.querySelector('#about');
+        if (aboutSection) {
+            statsObserver.observe(aboutSection);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Stagger Animations
+        document.querySelectorAll('.card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
