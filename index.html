@@ -4,432 +4,734 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- WEBSITE TITLE - Change this to update the browser tab title -->
-    <title>Miles Lucatorto | Mechanical Engineering</title>
-    
-    <!-- DESCRIPTION - This appears in search results -->
+    <!-- ============================================ -->
+    <!-- EDIT THESE: Basic website info               -->
+    <!-- ============================================ -->
+    <title>Miles Lucatorto | Mechanical Engineering Portfolio</title>
     <meta name="description" content="Miles Lucatorto - Mechanical Engineering student at UConn specializing in Formula SAE, robotics, and precision engineering.">
     
-    <!-- FONTS - Google Fonts for typography -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- CSS STYLESHEET - Link to external CSS file -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body data-theme="dark">
     
-    <!-- =========================== -->
-    <!-- GRID BACKGROUND             -->
-    <!-- =========================== -->
-    <div class="grid-bg"></div>
-
-    <!-- =========================== -->
-    <!-- MUSIC PLAYER (Top Right)    -->
-    <!-- =========================== -->
+    <!-- Animated Grid Background -->
+    <div class="grid-background"></div>
+    
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Music Player -->
     <div class="music-player">
         <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
-            🔇
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
         </button>
     </div>
 
-    <!-- =========================== -->
-    <!-- MAIN CONTENT                -->
-    <!-- =========================== -->
+    <!-- Main Content -->
     <main>
         
-        <!-- ======================= -->
-        <!-- HERO SECTION            -->
-        <!-- ======================= -->
+        <!-- ============================================ -->
+        <!-- HERO SECTION                                 -->
+        <!-- EDIT: Your name, title, subtitle, and photo  -->
+        <!-- ============================================ -->
         <section class="hero" id="home">
-            
-            <!-- HEADSHOT -->
-            <div class="headshot-container">
-                <div class="headshot">
-                    <!-- REPLACE THIS WITH YOUR INITIALS OR LEAVE AS IS -->
-                    <span>ML</span>
-                    <!-- To use an actual image instead of initials, replace the span above with:
-                         <img src="your-photo.jpg" alt="Miles Lucatorto" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"> -->
-                </div>
-            </div>
-            
-            <!-- HERO TEXT CONTENT -->
             <div class="hero-content">
-                <!-- Small label above name -->
-                <div class="hero-label">MECHANICAL ENGINEERING @ UCONN</div>
                 
-                <!-- YOUR NAME - Main heading -->
-                <h1>Miles Lucatorto</h1>
+                <!-- Profile Photo -->
+                <div class="profile-photo-container">
+                    <div class="profile-photo">
+                        <!-- OPTION 1: Use initials (default) -->
+                        <span class="initials">ML</span>
+                        
+                        <!-- OPTION 2: Use your photo (uncomment and add your image) -->
+                        <!-- <img src="images/profile.jpg" alt="Miles Lucatorto"> -->
+                    </div>
+                    <div class="photo-glow"></div>
+                </div>
                 
-                <!-- SUBTITLE - Brief description -->
-                <p class="hero-subtitle">
-                    Mechanical engineering student specializing in precision design, 
-                    Formula SAE, and hands-on fabrication. Building solutions through 
-                    technical excellence and iterative engineering.
-                </p>
-                
-                <!-- META INFO - Degree and graduation year -->
-                <div class="hero-meta">B.S. Mechanical Engineering · Class of 2029</div>
-            </div>
-        </section>
-
-        <!-- ======================= -->
-        <!-- ABOUT SECTION           -->
-        <!-- ======================= -->
-        <section id="about">
-            <div class="section-header">
-                <div class="section-label">ABOUT</div>
-                <h2 class="section-title">Engineer & Builder</h2>
-                <p class="section-description">
-                    Driven by curiosity and a commitment to practical engineering excellence
-                </p>
+                <!-- Name and Title -->
+                <div class="hero-text">
+                    <div class="hero-label">
+                        <span class="label-line"></span>
+                        <!-- EDIT THIS: Your role/major -->
+                        <span>Mechanical Engineering @ UConn</span>
+                        <span class="label-line"></span>
+                    </div>
+                    
+                    <!-- EDIT THIS: Your name -->
+                    <h1 class="hero-title">
+                        <span class="title-word">Miles</span>
+                        <span class="title-word">Lucatorto</span>
+                    </h1>
+                    
+                    <!-- EDIT THIS: Your subtitle/tagline -->
+                    <p class="hero-subtitle">
+                        Mechanical engineering student specializing in precision design, 
+                        Formula SAE, and hands-on fabrication. Building solutions through 
+                        technical excellence and iterative engineering.
+                    </p>
+                    
+                    <!-- EDIT THIS: Your degree info -->
+                    <div class="hero-meta">
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                            B.S. Mechanical Engineering
+                        </span>
+                        <span class="meta-divider">·</span>
+                        <span class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Class of 2029
+                        </span>
+                    </div>
+                    
+                    <!-- Call to Action Buttons -->
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View Projects</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             
-            <div class="about-grid">
-                <!-- LEFT COLUMN: About text -->
-                <div class="about-text">
-                    <!-- PARAGRAPH 1 - Edit your story here -->
-                    <p>
-                        I'm a Mechanical Engineering student at the University of Connecticut, 
-                        graduating in 2029, with a passion for transforming abstract concepts 
-                        into tangible, high-performance systems.
-                    </p>
-                    
-                    <!-- PARAGRAPH 2 -->
-                    <p>
-                        Whether designing aerodynamic components for our Formula SAE race car, 
-                        machining precision parts on CNC equipment, or optimizing robotic mechanisms, 
-                        I thrive where design meets manufacturing reality.
-                    </p>
-                    
-                    <!-- PARAGRAPH 3 -->
-                    <p>
-                        My technical foundation spans CAD modeling, FEA simulation, manufacturing 
-                        processes, and collaborative engineering workflows. I believe the best 
-                        engineering happens through iteration, testing, and learning from failures.
-                    </p>
+            <!-- Animated scroll indicator -->
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
                 </div>
-                
-                <!-- RIGHT COLUMN: Stats -->
-                <div class="stats-grid">
-                    <!-- STAT 1 - Projects completed -->
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="10">0</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                    
-                    <!-- STAT 2 - CAD hours -->
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="120">0</div>
-                        <div class="stat-label">CAD Hours</div>
-                    </div>
-                    
-                    <!-- STAT 3 - Volunteer hours -->
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="250">0</div>
-                        <div class="stat-label">Volunteer Hrs</div>
-                    </div>
-                    
-                    <!-- STAT 4 - Money raised -->
-                    <div class="stat-card">
-                        <div class="stat-number" data-target="10000">0</div>
-                        <div class="stat-label">Raised ($)</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======================= -->
-        <!-- SKILLS SECTION          -->
-        <!-- ======================= -->
-        <section id="skills">
-            <div class="section-header">
-                <div class="section-label">SKILLS</div>
-                <h2 class="section-title">Technical Capabilities</h2>
-            </div>
-            
-            <div class="grid">
-                <!-- SKILL CARD 1: CAD & Design -->
-                <div class="card">
-                    <div class="card-icon">📐</div>
-                    <h3>CAD & Design</h3>
-                    <ul>
-                        <li>SolidWorks (Advanced)</li>
-                        <li>Fusion 360</li>
-                        <li>AutoCAD</li>
-                        <li>GD&T Documentation</li>
-                    </ul>
-                </div>
-                
-                <!-- SKILL CARD 2: Manufacturing -->
-                <div class="card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Manufacturing</h3>
-                    <ul>
-                        <li>CNC Machining</li>
-                        <li>3D Printing (FDM/SLA)</li>
-                        <li>Sheet Metal Fabrication</li>
-                        <li>Assembly & Testing</li>
-                    </ul>
-                </div>
-                
-                <!-- SKILL CARD 3: Analysis -->
-                <div class="card">
-                    <div class="card-icon">🔬</div>
-                    <h3>Analysis</h3>
-                    <ul>
-                        <li>FEA Simulation</li>
-                        <li>Data Organization</li>
-                        <li>Performance Testing</li>
-                        <li>Excel & Documentation</li>
-                    </ul>
-                </div>
-                
-                <!-- SKILL CARD 4: Education -->
-                <div class="card">
-                    <div class="card-icon">🎓</div>
-                    <h3>Education</h3>
-                    <ul>
-                        <li>University of Connecticut</li>
-                        <li>B.S. Mechanical Engineering</li>
-                        <li>Expected: May 2029</li>
-                        <li>Floral Park Memorial HS</li>
-                    </ul>
+                <div class="arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <!-- ======================= -->
-        <!-- INVOLVEMENT SECTION     -->
-        <!-- ======================= -->
-        <section id="involvement">
-            <div class="section-header">
-                <div class="section-label">INVOLVEMENT</div>
-                <h2 class="section-title">Experience</h2>
-            </div>
-            
-            <div class="grid">
-                <!-- INVOLVEMENT 1: Formula SAE -->
-                <div class="card">
-                    <div class="card-icon">🏎️</div>
-                    <h3>Formula SAE</h3>
-                    <p>
-                        Aerodynamics Subsystem Member for UConn's Formula SAE electric race car. 
-                        Contributing to CAD design, packaging, and subsystem collaboration.
-                    </p>
-                    <div class="tag">2025 - Present</div>
-                </div>
-                
-                <!-- INVOLVEMENT 2: Robotics -->
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>FIRST Robotics</h3>
-                    <p>
-                        Field Staff Volunteer for 4017 RoboPandas, assisting with setup, teardown, 
-                        and event execution during regional competitions.
-                    </p>
-                    <div class="tag">2022 - 2025</div>
-                </div>
-                
-                <!-- INVOLVEMENT 3: Boy Scouts -->
-                <div class="card">
-                    <div class="card-icon">⛺</div>
-                    <h3>Boy Scouts</h3>
-                    <p>
-                        Senior Patrol Leader and Health & Safety Merit Badge Counselor. 
-                        Eagle Scout candidate with extensive leadership experience.
-                    </p>
-                    <div class="tag">2018 - Present</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======================= -->
-        <!-- PROJECTS SECTION        -->
-        <!-- ======================= -->
-        <section id="projects">
-            <div class="section-header">
-                <div class="section-label">PROJECTS</div>
-                <h2 class="section-title">Featured Work</h2>
-            </div>
-            
-            <div class="grid">
-                <!-- PROJECT 1 -->
-                <div class="project-card">
-                    <div class="project-image">🏗️</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">CAD</span>
-                            <span class="tag">Analysis</span>
-                            <span class="tag">FSAE</span>
-                        </div>
-                        <h3>Aerodynamics Components</h3>
-                        <p>
-                            Design and packaging work for Formula SAE aerodynamic subsystems. 
-                            Focus on integration and manufacturability.
-                        </p>
+        <!-- ============================================ -->
+        <!-- ABOUT SECTION                                -->
+        <!-- EDIT: Your bio paragraphs and stat numbers   -->
+        <!-- ============================================ -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="section-subtitle">Engineer & Builder</p>
                     </div>
                 </div>
                 
-                <!-- PROJECT 2 -->
-                <div class="project-card">
-                    <div class="project-image">🔧</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Manufacturing</span>
-                            <span class="tag">CNC</span>
-                        </div>
-                        <h3>Precision Fabrication</h3>
+                <div class="about-grid">
+                    <!-- Left: Bio Text -->
+                    <div class="about-text">
+                        <!-- EDIT THESE: Your story paragraphs -->
                         <p>
-                            Custom manufacturing projects utilizing CNC machining and 
-                            3D printing to create precision components.
+                            I'm a <strong>Mechanical Engineering student at the University of Connecticut</strong>, 
+                            graduating in 2029, with a passion for transforming abstract concepts 
+                            into tangible, high-performance systems. My approach combines rigorous 
+                            analytical thinking with hands-on fabrication experience.
+                        </p>
+                        <p>
+                            Whether designing aerodynamic components for our <strong>Formula SAE race car</strong>, 
+                            machining precision parts on CNC equipment, or optimizing robotic mechanisms 
+                            for competition, I thrive in environments where design meets manufacturing reality.
+                        </p>
+                        <p>
+                            My technical foundation spans <strong>CAD modeling</strong> (SolidWorks, Fusion 360, AutoCAD), 
+                            FEA simulation, manufacturing processes, and collaborative engineering workflows. 
+                            Beyond technical skills, I've developed leadership capabilities through scouting 
+                            (Eagle Scout candidate) and coordinating engineering team efforts.
+                        </p>
+                        <p>
+                            I believe the best engineering happens at the intersection of theoretical 
+                            knowledge and practical execution—where designs are validated through testing, 
+                            failures become learning opportunities, and iteration drives excellence.
                         </p>
                     </div>
-                </div>
-                
-                <!-- PROJECT 3 -->
-                <div class="project-card">
-                    <div class="project-image">🎯</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Community</span>
+                    
+                    <!-- Right: Stats Cards -->
+                    <div class="stats-grid">
+                        <!-- EDIT THESE: Your numbers (change data-target value) -->
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-target="10">0</div>
+                            <div class="stat-label">Projects Completed</div>
                         </div>
-                        <h3>Eagle Scout Project</h3>
-                        <p>
-                            Leadership project demonstrating planning, organization, 
-                            and community impact through coordinated field work.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- PROJECT 4 -->
-                <div class="project-card">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Testing</span>
-                            <span class="tag">Data</span>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-target="120">0</div>
+                            <div class="stat-label">CAD Hours</div>
                         </div>
-                        <h3>Performance Testing</h3>
-                        <p>
-                            Component testing and data analysis focused on validating 
-                            design decisions through empirical measurement.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- PROJECT 5 -->
-                <div class="project-card">
-                    <div class="project-image">💡</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Fundraising</span>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-target="250">0</div>
+                            <div class="stat-label">Volunteer Hours</div>
                         </div>
-                        <h3>SkillsUSA Fundraising</h3>
-                        <p>
-                            Fundraising assistant role coordinating sales events. 
-                            Raised over $10,000 for student competitions.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- PROJECT 6 -->
-                <div class="project-card">
-                    <div class="project-image">🏊</div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Safety</span>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-number" data-target="10000" data-prefix="$">0</div>
+                            <div class="stat-label">Funds Raised</div>
                         </div>
-                        <h3>Lifeguard & Safety</h3>
-                        <p>
-                            Nassau County Certified Lifeguard ensuring water safety 
-                            through monitoring and emergency response.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ======================= -->
-        <!-- CONTACT SECTION         -->
-        <!-- ======================= -->
-        <section id="contact">
-            <div class="section-header">
-                <div class="section-label">CONTACT</div>
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="section-description">
-                    Available for internships, project collaboration, and engineering opportunities
-                </p>
+        <!-- ============================================ -->
+        <!-- SKILLS SECTION                               -->
+        <!-- EDIT: Your skills in each category           -->
+        <!-- ============================================ -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Technical Skills</h2>
+                        <p class="section-subtitle">Comprehensive engineering capabilities</p>
+                    </div>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Skill Card 1 -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <h3>CAD & Design</h3>
+                        </div>
+                        <!-- EDIT: Your CAD skills -->
+                        <ul class="skill-list">
+                            <li>SolidWorks (Advanced modeling)</li>
+                            <li>Fusion 360 (Parametric design)</li>
+                            <li>AutoCAD (Technical drawings)</li>
+                            <li>GD&T Documentation</li>
+                            <li>Assembly design</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Card 2 -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                    <path d="M1 12h6m6 0h6"></path>
+                                </svg>
+                            </div>
+                            <h3>Manufacturing</h3>
+                        </div>
+                        <!-- EDIT: Your manufacturing skills -->
+                        <ul class="skill-list">
+                            <li>CNC Machining & Programming</li>
+                            <li>3D Printing (FDM, SLA)</li>
+                            <li>Sheet Metal Fabrication</li>
+                            <li>Manual Machining</li>
+                            <li>Assembly & Testing</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Card 3 -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <h3>Analysis & Testing</h3>
+                        </div>
+                        <!-- EDIT: Your analysis skills -->
+                        <ul class="skill-list">
+                            <li>FEA Simulation (Stress, Modal)</li>
+                            <li>Performance Testing</li>
+                            <li>Data Collection & Analysis</li>
+                            <li>Excel & Documentation</li>
+                            <li>Measurement & Tolerancing</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Skill Card 4 -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                                </svg>
+                            </div>
+                            <h3>Education</h3>
+                        </div>
+                        <!-- EDIT: Your education details -->
+                        <ul class="skill-list">
+                            <li>University of Connecticut</li>
+                            <li>B.S. Mechanical Engineering</li>
+                            <li>Expected Graduation: May 2029</li>
+                            <li>Floral Park Memorial HS (2025)</li>
+                            <li>Sewanhaka CTE Program</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid">
-                <!-- CONTACT 1: Email -->
-                <div class="card">
-                    <h3>📧 Email</h3>
-                    <p>miles.lucatorto@gmail.com</p>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- INVOLVEMENT SECTION                          -->
+        <!-- EDIT: Your involvement activities            -->
+        <!-- ============================================ -->
+        <section class="involvement" id="involvement">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Experience</h2>
+                        <p class="section-subtitle">Leadership and hands-on involvement</p>
+                    </div>
                 </div>
                 
-                <!-- CONTACT 2: Phone -->
-                <div class="card">
-                    <h3>📱 Phone</h3>
-                    <p>(516) 757-2649</p>
+                <div class="involvement-grid">
+                    <!-- Involvement 1 -->
+                    <div class="involvement-card">
+                        <div class="involvement-image">
+                            <!-- EDIT: Add your image or keep icon -->
+                            <div class="involvement-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/fsae.jpg" alt="Formula SAE"> -->
+                        </div>
+                        <div class="involvement-content">
+                            <div class="involvement-meta">
+                                <span class="involvement-date">2025 - Present</span>
+                                <span class="involvement-badge">Active</span>
+                            </div>
+                            <!-- EDIT: Your role and description -->
+                            <h3>Formula SAE</h3>
+                            <p>
+                                Aerodynamics Subsystem Member for UConn's Formula SAE electric race car. 
+                                Contributing to CAD design, packaging optimization, and subsystem collaboration 
+                                for competition-ready vehicle systems.
+                            </p>
+                            <div class="involvement-tags">
+                                <span class="tag">Engineering</span>
+                                <span class="tag">Teamwork</span>
+                                <span class="tag">Competition</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Involvement 2 -->
+                    <div class="involvement-card">
+                        <div class="involvement-image">
+                            <div class="involvement-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/robotics.jpg" alt="Robotics"> -->
+                        </div>
+                        <div class="involvement-content">
+                            <div class="involvement-meta">
+                                <span class="involvement-date">2022 - 2025</span>
+                            </div>
+                            <h3>FIRST Robotics</h3>
+                            <p>
+                                Field Staff Volunteer for 4017 RoboPandas, assisting with field setup, 
+                                teardown, and event execution during robotics competitions. Supporting 
+                                teams and staff in running large-scale regional qualifier events.
+                            </p>
+                            <div class="involvement-tags">
+                                <span class="tag">Volunteer</span>
+                                <span class="tag">Robotics</span>
+                                <span class="tag">Event Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Involvement 3 -->
+                    <div class="involvement-card">
+                        <div class="involvement-image">
+                            <div class="involvement-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/scouting.jpg" alt="Boy Scouts"> -->
+                        </div>
+                        <div class="involvement-content">
+                            <div class="involvement-meta">
+                                <span class="involvement-date">2018 - Present</span>
+                                <span class="involvement-badge">Leadership</span>
+                            </div>
+                            <h3>Boy Scouts of America</h3>
+                            <p>
+                                Senior Patrol Leader and Health & Safety Merit Badge Counselor for Troop 4, 
+                                Floral Park. Responsible for planning, training, and leading scouts. 
+                                Eagle Scout candidate (application submitted 2025).
+                            </p>
+                            <div class="involvement-tags">
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Community</span>
+                                <span class="tag">Mentorship</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- PROJECTS SECTION                             -->
+        <!-- EDIT: Add your projects                      -->
+        <!-- ============================================ -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Featured Projects</h2>
+                        <p class="section-subtitle">Engineering work and portfolio highlights</p>
+                    </div>
                 </div>
                 
-                <!-- CONTACT 3: LinkedIn -->
-                <div class="card">
-                    <h3>💼 LinkedIn</h3>
-                    <p>linkedin.com/in/miles-lucatorto</p>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- EDIT: Add your project image -->
+                            <div class="project-placeholder">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/project1.jpg" alt="Project Name"> -->
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <!-- EDIT: Your project tags -->
+                                <span class="tag">CAD</span>
+                                <span class="tag">Analysis</span>
+                                <span class="tag">FSAE</span>
+                            </div>
+                            <!-- EDIT: Project title and description -->
+                            <h3>Aerodynamics Components</h3>
+                            <p>
+                                Design and packaging work for Formula SAE aerodynamic subsystems. 
+                                Focus on integration with existing vehicle architecture while optimizing 
+                                for performance and manufacturability.
+                            </p>
+                            <ul class="project-highlights">
+                                <li>CAD modeling in SolidWorks</li>
+                                <li>Packaging optimization</li>
+                                <li>Cross-subsystem collaboration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                    <path d="M1 12h6m6 0h6"></path>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/project2.jpg" alt="Project Name"> -->
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Manufacturing</span>
+                                <span class="tag">CNC</span>
+                                <span class="tag">Prototyping</span>
+                            </div>
+                            <h3>Precision Fabrication</h3>
+                            <p>
+                                Custom manufacturing projects utilizing CNC machining, 3D printing, 
+                                and sheet metal fabrication to create precision components and assemblies.
+                            </p>
+                            <ul class="project-highlights">
+                                <li>CNC programming and operation</li>
+                                <li>FDM and SLA 3D printing</li>
+                                <li>Quality control and inspection</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                            </div>
+                            <!-- <img src="images/project3.jpg" alt="Project Name"> -->
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Leadership</span>
+                                <span class="tag">Community</span>
+                                <span class="tag">Project Management</span>
+                            </div>
+                            <h3>Eagle Scout Project</h3>
+                            <p>
+                                Comprehensive leadership project involving field work coordination, 
+                                community engagement, and project execution demonstrating planning 
+                                and organizational skills.
+                            </p>
+                            <ul class="project-highlights">
+                                <li>Project planning and coordination</li>
+                                <li>Volunteer leadership and management</li>
+                                <li>Community impact and service</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more projects by copying the structure above -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- CONTACT SECTION                              -->
+        <!-- EDIT: Your contact information               -->
+        <!-- ============================================ -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <div class="section-title-group">
+                        <h2 class="section-title">Get in Touch</h2>
+                        <p class="section-subtitle">Let's discuss opportunities and projects</p>
+                    </div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-description">
+                            I'm currently seeking internship opportunities, collaborative projects, 
+                            and connections in the mechanical engineering field. Feel free to reach out 
+                            through any of the channels below.
+                        </p>
+                        
+                        <div class="contact-methods">
+                            <!-- EDIT: Your email -->
+                            <a href="mailto:miles.lucatorto@gmail.com" class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="method-details">
+                                    <h4>Email</h4>
+                                    <p>miles.lucatorto@gmail.com</p>
+                                </div>
+                            </a>
+                            
+                            <!-- EDIT: Your LinkedIn -->
+                            <a href="https://linkedin.com/in/miles-lucatorto" target="_blank" class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                        <rect x="2" y="9" width="4" height="12"></rect>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                </div>
+                                <div class="method-details">
+                                    <h4>LinkedIn</h4>
+                                    <p>linkedin.com/in/miles-lucatorto</p>
+                                </div>
+                            </a>
+                            
+                            <!-- EDIT: Your phone (optional) -->
+                            <a href="tel:+15167572649" class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="method-details">
+                                    <h4>Phone</h4>
+                                    <p>(516) 757-2649</p>
+                                </div>
+                            </a>
+                            
+                            <!-- EDIT: Your location -->
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="method-details">
+                                    <h4>Location</h4>
+                                    <p>Floral Park, NY</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- =========================== -->
-    <!-- FOOTER                      -->
-    <!-- =========================== -->
-    <footer>
-        <p>© 2025 Miles Lucatorto · Floral Park, NY · Engineered with precision</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- EDIT: Your name and location -->
+                <p class="footer-text">
+                    © 2025 Miles Lucatorto. Built with precision. Floral Park, NY.
+                </p>
+                <div class="footer-links">
+                    <a href="#home">Back to Top</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- =========================== -->
-    <!-- FLOATING NAVIGATION (Bottom)-->
-    <!-- =========================== -->
-    <div class="floating-nav">
+    <!-- ============================================ -->
+    <!-- FLOATING NAVIGATION                          -->
+    <!-- Navigation icons - no edits needed           -->
+    <!-- ============================================ -->
+    <nav class="floating-nav" id="floatingNav">
         <div class="nav-container">
-            <!-- Navigation Icons - Click to scroll to sections -->
-            <a href="#home" class="nav-item" data-section="home" title="Home">🏠</a>
-            <a href="#about" class="nav-item" data-section="about" title="About">👤</a>
-            <a href="#skills" class="nav-item" data-section="skills" title="Skills">⚙️</a>
-            <a href="#involvement" class="nav-item" data-section="involvement" title="Involvement">🤝</a>
-            <a href="#projects" class="nav-item" data-section="projects" title="Projects">📁</a>
-            <a href="#contact" class="nav-item" data-section="contact" title="Contact">📧</a>
-            
-            <!-- Divider line -->
+            <a href="#home" class="nav-item" data-tooltip="Home">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+            </a>
+            <a href="#about" class="nav-item" data-tooltip="About">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+            <a href="#skills" class="nav-item" data-tooltip="Skills">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+            </a>
+            <a href="#involvement" class="nav-item" data-tooltip="Experience">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+            </a>
+            <a href="#projects" class="nav-item" data-tooltip="Projects">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                    <polyline points="13 2 13 9 20 9"></polyline>
+                </svg>
+            </a>
+            <a href="#contact" class="nav-item" data-tooltip="Contact">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
             <div class="nav-divider"></div>
-            
-            <!-- Theme toggle button (Light/Dark mode) -->
-            <button class="nav-btn" id="themeToggle" title="Toggle theme">☀</button>
+            <button class="nav-item theme-toggle" id="themeToggle" data-tooltip="Toggle Theme">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
         </div>
-    </div>
+    </nav>
 
-    <!-- =========================== -->
-    <!-- BACKGROUND MUSIC            -->
-    <!-- =========================== -->
-    <!-- TO CHANGE THE MUSIC: Replace the URL in the src attribute below with your own MP3 file -->
+    <!-- ============================================ -->
+    <!-- BACKGROUND MUSIC AUDIO ELEMENT               -->
+    <!-- EDIT: Change src to your music file          -->
+    <!-- ============================================ -->
     <audio id="bgMusic" loop>
         <source src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" type="audio/mpeg">
-        <!-- Alternative music sources you can try:
-             https://assets.mixkit.co/music/preview/mixkit-ambient-piano-amp-strings-10711.mp3
-             https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3
-        -->
+        <!-- TO USE YOUR OWN MUSIC: Replace URL above with your file: src="music/yourfile.mp3" -->
     </audio>
 
-    <!-- =========================== -->
-    <!-- JAVASCRIPT FILE             -->
-    <!-- =========================== -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
-    
 </body>
 </html>
