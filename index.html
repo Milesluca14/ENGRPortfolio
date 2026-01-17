@@ -368,6 +368,73 @@
             text-transform: uppercase;
         }
 
+        /* Education Section */
+        .education {
+            background: var(--bg-primary);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-default);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-logo {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 0.75rem;
+        }
+
+        .education-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .education-content h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .education-degree {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .education-year {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
         /* Skills Grid */
         .skills-grid {
             display: grid;
@@ -610,6 +677,9 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -618,7 +688,8 @@
             .stats-grid { grid-template-columns: 1fr; }
             .skills-grid,
             .involvement-grid,
-            .projects-grid {
+            .projects-grid,
+            .education-grid {
                 grid-template-columns: 1fr;
             }
             .floating-nav {
@@ -654,12 +725,14 @@
                 </div>
                 <div class="hero-label">
                     <span style="font-family: var(--font-mono); color: var(--text-tertiary); font-size: 0.7rem; opacity: 0.5;">&lt;!-- </span>
-                    Mechanical Engineering Student @ UCONN
+                    Mechanical Engineering @ UConn
                     <span style="font-family: var(--font-mono); color: var(--text-tertiary); font-size: 0.7rem; opacity: 0.5;"> --&gt;</span>
                 </div>
                 <h1 class="hero-title">Miles Lucatorto</h1>
                 <p class="hero-subtitle">
-                    I am a Mechanical Engineering student at the University of Connecticut who is motivated by solving problems and making ideas work in the real world. I enjoy bringing technical and creative thinking together, whether I am designing parts in CAD, machining components, or testing systems to improve performance.
+                    Mechanical engineering student specializing in precision design, 
+                    Formula SAE, and hands-on fabrication. Building solutions through 
+                    technical excellence and iterative engineering.
                 </p>
                 <div class="hero-meta">B.S. Mechanical Engineering · Class of 2029</div>
                 <div class="hero-cta">
@@ -698,6 +771,47 @@
                         <div class="stat-card">
                             <div class="stat-number" data-target="10000">$10,000</div>
                             <div class="stat-label">Funds Raised</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="education" id="education">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                </div>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="uconn-logo.png" alt="University of Connecticut">
+                        </div>
+                        <div class="education-content">
+                            <h3>University of Connecticut</h3>
+                            <p class="education-degree">B.S. Mechanical Engineering</p>
+                            <p class="education-year">2025 – 2029</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="fpmhs-logo.png" alt="Floral Park Memorial High School">
+                        </div>
+                        <div class="education-content">
+                            <h3>Floral Park Memorial High School</h3>
+                            <p class="education-degree">High School Diploma</p>
+                            <p class="education-year">2019 – 2025</p>
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="sewanhaka-logo.png" alt="Sewanhaka High School">
+                        </div>
+                        <div class="education-content">
+                            <h3>Sewanhaka High School · CTE</h3>
+                            <p class="education-degree">Architectural Studies Program</p>
+                            <p class="education-year">2022 – 2025</p>
                         </div>
                     </div>
                 </div>
@@ -761,27 +875,33 @@
                 </div>
                 <div class="involvement-grid">
                     <div class="involvement-card">
-                        <div class="involvement-image">🏎️</div>
+                        <div class="involvement-image">
+                            <img src="fsae1.jpg" alt="Formula SAE" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="involvement-content">
                             <h3>Formula SAE</h3>
                             <span class="tag">2025 - Present</span>
-                            <p>Aerodynamics Subsystem Member for UConn's Formula SAE electric race car. Contributing to CAD design, packaging optimization, and subsystem collaboration.</p>
+                            <p>Work on UConn Formula SAE, contributing to design and subsystem collaboration on a student-built race car. I have contributed to both Aerodynamics and IC Powertrain subsystems. My work includes CAD modeling, packaging, and supporting design decisions that affect performance and manufacturability.</p>
                         </div>
                     </div>
                     <div class="involvement-card">
-                        <div class="involvement-image">🤖</div>
+                        <div class="involvement-image">
+                            <img src="robotics1.jpg" alt="FIRST Robotics" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="involvement-content">
                             <h3>FIRST Robotics</h3>
                             <span class="tag">2022 - 2025</span>
-                            <p>Field Staff Volunteer for 4017 RoboPandas, assisting with field setup, teardown, and event execution during competitions.</p>
+                            <p>Experience with 4017 RoboPandas, contributing to manufacturing, assembly, testing, and event support. I helped build and maintain competition robots, supported event operations, and assisted with outreach. Our team qualified for the 2025 FIRST Tech Challenge World Championship.</p>
                         </div>
                     </div>
                     <div class="involvement-card">
-                        <div class="involvement-image">⛺</div>
+                        <div class="involvement-image">
+                            <img src="scouting1.jpg" alt="Boy Scouts of America" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="involvement-content">
                             <h3>Boy Scouts of America</h3>
                             <span class="tag">2018 - Present</span>
-                            <p>Senior Patrol Leader and Health & Safety Merit Badge Counselor. Eagle Scout candidate (application submitted 2025).</p>
+                            <p>Senior Patrol Leader and Eagle Scout candidate with Troop 4 in Floral Park, New York. Scouting has been a major part of how I learned leadership, responsibility, and planning. I lead meetings, coordinate activities, mentor younger scouts, and help run events where safety and preparation matter.</p>
                         </div>
                     </div>
                 </div>
@@ -797,11 +917,13 @@
                 </div>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <div class="project-image">🏗️</div>
+                        <div class="project-image">
+                            <img src="aerocomp1.jpg" alt="Aerodynamics Components" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="project-content">
                             <div><span class="tag">CAD</span><span class="tag">Analysis</span><span class="tag">FSAE</span></div>
                             <h3>Aerodynamics Components</h3>
-                            <p>Design and packaging work for Formula SAE aerodynamic subsystems. Focus on integration and manufacturability.</p>
+                            <p>Design and packaging work for Formula SAE aerodynamic subsystems. Focus on integration with existing vehicle architecture while optimizing for performance and manufacturability.</p>
                             <ul class="project-highlights">
                                 <li>CAD modeling in SolidWorks</li>
                                 <li>Packaging optimization</li>
@@ -810,11 +932,13 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image">🔧</div>
+                        <div class="project-image">
+                            <img src="machine1.jpg" alt="Precision Fabrication" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="project-content">
                             <div><span class="tag">Manufacturing</span><span class="tag">CNC</span></div>
                             <h3>Precision Fabrication</h3>
-                            <p>Custom manufacturing projects utilizing CNC machining and 3D printing to create precision components.</p>
+                            <p>Custom manufacturing projects utilizing CNC machining and 3D printing to create precision components and assemblies.</p>
                             <ul class="project-highlights">
                                 <li>CNC programming and operation</li>
                                 <li>FDM and SLA 3D printing</li>
@@ -823,14 +947,16 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <div class="project-image">🎯</div>
+                        <div class="project-image">
+                            <img src="eaglescout.jpg" alt="Eagle Scout Project" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         <div class="project-content">
                             <div><span class="tag">Leadership</span><span class="tag">Community</span></div>
                             <h3>Eagle Scout Project</h3>
                             <p>Leadership project demonstrating planning, organization, and community impact through coordinated field work.</p>
                             <ul class="project-highlights">
                                 <li>Project planning and coordination</li>
-                                <li>Volunteer leadership</li>
+                                <li>Volunteer leadership and management</li>
                                 <li>Community impact and service</li>
                             </ul>
                         </div>
@@ -897,6 +1023,8 @@
                 </span>
                 <span>•</span>
                 <span>No templates, no builders</span>
+                <span>•</span>
+                <a href="resume.html" style="color: var(--accent-primary); text-decoration: none; font-weight: 500;">View Resume →</a>
             </div>
             <div class="tech-stack-hint">
                 Vanilla JS • CSS Grid • IntersectionObserver • localStorage
@@ -912,6 +1040,7 @@
         <a href="#projects" class="nav-item">Projects</a>
         <a href="#contact" class="nav-item">Contact</a>
         <div class="nav-divider"></div>
+        <a href="resume.html" class="nav-item" style="color: var(--accent-primary);">Resume</a>
         <button class="nav-item" id="themeToggle" style="min-width: 40px; padding: 0;">☀️</button>
     </nav>
 
