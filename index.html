@@ -299,6 +299,21 @@
         .linkedin-badge-container {
             max-width: 500px;
             margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Hide the "Miles Lucatorto" header link in badge */
+        .linkedin-badge-container .badge-base__link {
+            display: none !important;
+        }
+        
+        /* Style the badge frame */
+        .linkedin-badge-container .LI-profile-badge {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-default);
         }
 
         .stats-grid {
@@ -843,12 +858,14 @@
                 </div>
                 
                 <!-- LinkedIn Badge -->
-                <div class="linkedin-badge-container" style="margin-top: 3rem; text-align: center;">
-                    <div class="linkedin-badge-dark">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="miles-lucatorto" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/miles-lucatorto?trk=profile-badge">Miles Lucatorto</a></div>
-                    </div>
-                    <div class="linkedin-badge-light">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="miles-lucatorto" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/miles-lucatorto?trk=profile-badge">Miles Lucatorto</a></div>
+                <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-default);">
+                    <div class="linkedin-badge-container">
+                        <div class="linkedin-badge-dark">
+                            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="miles-lucatorto" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/miles-lucatorto?trk=profile-badge">Miles Lucatorto</a></div>
+                        </div>
+                        <div class="linkedin-badge-light">
+                            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="miles-lucatorto" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/miles-lucatorto?trk=profile-badge">Miles Lucatorto</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
