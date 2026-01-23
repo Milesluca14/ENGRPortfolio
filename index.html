@@ -10,6 +10,9 @@
     <link rel="icon" type="image/png" href="ML.png">
     <link rel="shortcut icon" type="image/png" href="ML.png">
     
+    <!-- Preload critical image -->
+    <link rel="preload" as="image" href="herophoto.JPG">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -693,15 +696,24 @@
                 grid-template-columns: 1fr;
             }
             .floating-nav {
-                bottom: 1rem;
-                padding: 0.5rem 0.75rem;
+                bottom: 0.75rem;
+                left: 1rem;
+                right: 1rem;
+                transform: none;
+                padding: 0.75rem;
                 flex-wrap: wrap;
-                max-width: 90vw;
+                justify-content: center;
+                gap: 0.5rem;
+                max-width: none;
             }
             .nav-item {
-                height: 36px;
-                padding: 0 0.75rem;
-                font-size: 0.75rem;
+                height: 38px;
+                padding: 0 1rem;
+                font-size: 0.8rem;
+                flex: 0 1 auto;
+            }
+            .nav-divider {
+                display: none;
             }
         }
     </style>
@@ -721,7 +733,7 @@
             <div class="hero-content">
                 <!-- Profile photo with subtle handcrafted touch -->
                 <div class="profile-photo">
-                    <img src="herophoto.JPG" alt="Miles Lucatorto">
+                    <img src="herophoto.JPG" alt="Miles Lucatorto" loading="eager" decoding="async">
                 </div>
                 <div class="hero-label">
                     <span style="font-family: var(--font-mono); color: var(--text-tertiary); font-size: 0.7rem; opacity: 0.5;">&lt;!-- </span>
@@ -730,9 +742,7 @@
                 </div>
                 <h1 class="hero-title">Miles Lucatorto</h1>
                 <p class="hero-subtitle">
-                    Mechanical engineering student specializing in precision design, 
-                    Formula SAE, and hands-on fabrication. Building solutions through 
-                    technical excellence and iterative engineering.
+                    I'm a Mechanical Engineering student at UConn focused on automotive systems and performance. I work with Formula SAE's IC car, learning about powertrain design, engine systems, and vehicle dynamics. I'm drawn to projects where I can combine CAD work, hands-on fabrication, and real-world testing to make things work better.
                 </p>
                 <div class="hero-meta">B.S. Mechanical Engineering · Class of 2029</div>
                 <div class="hero-cta">
@@ -747,13 +757,12 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Engineer & Builder</p>
                 </div>
                 <div class="about-grid">
                     <div class="about-text">
-                        <p>I'm a <strong>Mechanical Engineering student at the University of Connecticut</strong>, graduating in 2029, with a passion for transforming abstract concepts into tangible, high-performance systems.</p>
-                        <p>Whether designing aerodynamic components for our <strong>Formula SAE race car</strong>, machining precision parts on CNC equipment, or optimizing robotic mechanisms, I thrive where design meets manufacturing reality.</p>
-                        <p>My technical foundation spans <strong>CAD modeling</strong> (SolidWorks, Fusion 360, AutoCAD), FEA simulation, manufacturing processes, and collaborative engineering workflows.</p>
+                        <p>I'm a <strong>Mechanical Engineering student at the University of Connecticut</strong>, graduating in 2029. I'm working with our Formula SAE team on the IC car, focusing on powertrain and aerodynamics subsystems. This work has taught me about IC engine systems, CFD analysis, manufacturing processes, and how different subsystems need to work together on a vehicle.</p>
+                        <p>Outside of Formula SAE, I've spent years volunteering and fundraising with organizations like <strong>SkillsUSA and Boy Scouts of America</strong>. Through high school, I helped raise funds for community projects and learned how to coordinate people and resources to get things done. Leadership isn't just about technical skills—it's about organizing, planning, and following through.</p>
+                        <p>My technical foundation includes <strong>CAD modeling</strong> in SolidWorks, Fusion 360, and AutoCAD, along with hands-on experience in machining, 3D printing, and assembly work. I'm comfortable moving between design software and the shop floor, and I understand that good engineering means designs that can actually be built.</p>
                     </div>
                     <div class="stats-grid">
                         <div class="stat-card">
@@ -786,16 +795,6 @@
                 <div class="education-grid">
                     <div class="education-card">
                         <div class="education-logo">
-                            <img src="uconn-logo.png" alt="University of Connecticut">
-                        </div>
-                        <div class="education-content">
-                            <h3>University of Connecticut</h3>
-                            <p class="education-degree">B.S. Mechanical Engineering</p>
-                            <p class="education-year">2025 – 2029</p>
-                        </div>
-                    </div>
-                    <div class="education-card">
-                        <div class="education-logo">
                             <img src="fpmhs-logo.png" alt="Floral Park Memorial High School">
                         </div>
                         <div class="education-content">
@@ -814,6 +813,16 @@
                             <p class="education-year">2022 – 2025</p>
                         </div>
                     </div>
+                    <div class="education-card">
+                        <div class="education-logo">
+                            <img src="uconn-logo.png" alt="University of Connecticut">
+                        </div>
+                        <div class="education-content">
+                            <h3>University of Connecticut</h3>
+                            <p class="education-degree">B.S. Mechanical Engineering</p>
+                            <p class="education-year">2025 – 2029</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -823,43 +832,45 @@
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Technical Skills</h2>
-                    <p class="section-subtitle">Comprehensive engineering capabilities</p>
+                    <p class="section-subtitle">Hands-on engineering capabilities</p>
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <h3>📐 CAD & Design</h3>
+                        <h3>🔧 CAD & Design</h3>
                         <ul class="skill-list">
-                            <li>SolidWorks (Advanced modeling)</li>
-                            <li>Fusion 360 (Parametric design)</li>
-                            <li>AutoCAD (Technical drawings)</li>
-                            <li>GD&T Documentation</li>
+                            <li>SolidWorks (3D modeling)</li>
+                            <li>Fusion 360 (parametric design)</li>
+                            <li>AutoCAD (technical drawings)</li>
+                            <li>Basic FEA and simulation</li>
+                            <li>Measurement and tolerancing</li>
                         </ul>
                     </div>
                     <div class="skill-card">
-                        <h3>⚙️ Manufacturing</h3>
+                        <h3>⚙️ Manufacturing & Fabrication</h3>
                         <ul class="skill-list">
-                            <li>CNC Machining & Programming</li>
-                            <li>3D Printing (FDM, SLA)</li>
-                            <li>Sheet Metal Fabrication</li>
-                            <li>Assembly & Testing</li>
+                            <li>Basic machining and shop work</li>
+                            <li>3D printing and prototype fabrication</li>
+                            <li>Mechanical assembly and testing</li>
+                            <li>Documentation and report writing</li>
                         </ul>
                     </div>
                     <div class="skill-card">
-                        <h3>🔬 Analysis & Testing</h3>
+                        <h3>💻 Tools & Organization</h3>
                         <ul class="skill-list">
-                            <li>FEA Simulation</li>
-                            <li>Performance Testing</li>
-                            <li>Data Collection & Analysis</li>
-                            <li>Excel & Documentation</li>
+                            <li>Excel and data organization</li>
+                            <li>AI literacy and prompt engineering</li>
+                            <li>Team collaboration on technical projects</li>
+                            <li>Project planning and coordination</li>
                         </ul>
                     </div>
                     <div class="skill-card">
-                        <h3>🎓 Education</h3>
+                        <h3>🎓 Leadership & Background</h3>
                         <ul class="skill-list">
-                            <li>University of Connecticut</li>
-                            <li>B.S. Mechanical Engineering</li>
-                            <li>Expected: May 2029</li>
-                            <li>Floral Park Memorial HS</li>
+                            <li>Eagle Scout (BSA)</li>
+                            <li>Leadership through Scouting</li>
+                            <li>Volunteer coordination</li>
+                            <li>SkillsUSA participation</li>
+                            <li>Safety protocol enforcement</li>
                         </ul>
                     </div>
                 </div>
@@ -881,7 +892,7 @@
                         <div class="involvement-content">
                             <h3>Formula SAE</h3>
                             <span class="tag">2025 - Present</span>
-                            <p>Work on UConn Formula SAE, contributing to design and subsystem collaboration on a student-built race car. I have contributed to both Aerodynamics and IC Powertrain subsystems. My work includes CAD modeling, packaging, and supporting design decisions that affect performance and manufacturability.</p>
+                            <p>Working on UConn Formula SAE with a focus on the <strong>IC Powertrain subsystem</strong>, contributing to engine systems, calibration, and performance optimization. Also supporting aerodynamics work with CAD modeling and packaging. My work includes learning about IC engine design, subsystem integration, and how powertrain and aero work together on the car.</p>
                         </div>
                     </div>
                     <div class="involvement-card">
@@ -901,7 +912,7 @@
                         <div class="involvement-content">
                             <h3>Boy Scouts of America</h3>
                             <span class="tag">2018 - Present</span>
-                            <p>Senior Patrol Leader and Eagle Scout  with Troop 4 in Floral Park, New York. Scouting has been a major part of how I learned leadership, responsibility, and planning. I lead meetings, coordinate activities, mentor younger scouts, and help run events where safety and preparation matter.</p>
+                            <p>Senior Patrol Leader and Eagle Scout candidate with Troop 4 in Floral Park, New York. Scouting has been a major part of how I learned leadership, responsibility, and planning. I lead meetings, coordinate activities, mentor younger scouts, and help run events where safety and preparation matter.</p>
                         </div>
                     </div>
                 </div>
@@ -933,16 +944,16 @@
                     </div>
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="machine1.jpg" alt="Precision Fabrication" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="machine1.jpg" alt="Radiator Mount Fabrication" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="project-content">
-                            <div><span class="tag">Manufacturing</span><span class="tag">CNC</span></div>
-                            <h3>Precision Fabrication</h3>
-                            <p>Custom manufacturing projects utilizing CNC machining and 3D printing to create precision components and assemblies.</p>
+                            <div><span class="tag">Manufacturing</span><span class="tag">FSAE</span><span class="tag">Machining</span></div>
+                            <h3>Radiator Mount Fabrication</h3>
+                            <p>Collaborated with the IC subsystem to manufacture custom radiator mounts for the Formula SAE car. Using 3D models designed by our team lead, I machined and prepared 5/8-inch pipe sections to precise length and geometry, drilling and cutting them for final fitment. These components were then prepared for welding to the radiator, ensuring structural reliability and alignment for efficient cooling performance.</p>
                             <ul class="project-highlights">
-                                <li>CNC programming and operation</li>
-                                <li>FDM and SLA 3D printing</li>
-                                <li>Quality control and inspection</li>
+                                <li>3D visualization and design for manufacturing</li>
+                                <li>Precision measurement and machining operations</li>
+                                <li>Fabrication workflow coordination</li>
                             </ul>
                         </div>
                     </div>
@@ -953,11 +964,11 @@
                         <div class="project-content">
                             <div><span class="tag">Leadership</span><span class="tag">Community</span></div>
                             <h3>Eagle Scout Project</h3>
-                            <p>Leadership project demonstrating planning, organization, and community impact through coordinated field work.</p>
+                            <p>Led an Eagle Scout service project to replace 60 rotting 4x4 wooden posts supporting rope barriers in Centennial Gardens, Floral Park. Planned and executed post removal, cutting, drilling, and installation using hand and power tools, while supervising younger scouts and enforcing tool safety protocols. Coordinated fundraising, purchased $900 in materials, and installed water-preventing caps on all 180 posts to reduce future rot and improve long-term safety and maintenance.</p>
                             <ul class="project-highlights">
-                                <li>Project planning and coordination</li>
-                                <li>Volunteer leadership and management</li>
-                                <li>Community impact and service</li>
+                                <li>Project planning, budgeting, and fundraising</li>
+                                <li>Volunteer leadership and safety management</li>
+                                <li>Community impact and long-term sustainability</li>
                             </ul>
                         </div>
                     </div>
